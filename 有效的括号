@@ -1,0 +1,111 @@
+给你一个只包括‘（’，‘）’，‘{’，‘}’，‘【’，‘】’的字符串，判断字符串 是否有效。
+有效字符串满足：
+
+1.左括号必须用相同类型的右括号闭合。
+2.左括号必须以正确的顺序闭合。
+
+注意空字符串可被认为是有效的字符串。
+
+输入：‘（）’
+输出：true
+
+输入：“（）【】{}”
+输出：true
+
+pop 栈
+（（））【】（
+
+Python：
+class Solution:
+
+def isValid(self,s:str)->bool:
+if len(s) == 0:
+return True
+stack = []
+for c in s:
+if c=='(' or c=='[' or c=='{':
+stack.append(c)
+else:
+if len(stack) == 0:
+return False
+else:
+temp = stack.pop()
+if c==')':
+if temp!='c':
+return false
+elif c==']':
+if temp!='[':
+return false
+elif c==']':
+if temp!='[':
+return false
+elif c==']':
+if temp!='[':
+return false
+return True if len(stack) == 0 else False
+
+
+
+前置知识：
+什么是链表？链表是由一组不必相连【可以连续也可以不连续】的内存结构【节点】
+，按特定的顺序链接在一起的抽象数据模型
+
+链表共分几类？
+单链表，双向链表，循环链表
+
+单链表：
+.->l->data,next->data,next->data,next->data,next->null->
+
+双向链表:
+<-pre,data,next
+pre指针指向前一个节点
+next指针指向下一个节点
+最后的next指向空节点
+
+循环链表：
+单向：
+.->l->data,next->data,next->data,next->data,next->
+最后一个next指向头节点的data
+双向：
+pre,data,next
+每个节点有两个指针指向它，分别是上一个节点的next和下一个节点的prev指针
+
+第一个内存结构称为链头
+最后一个内存结构称为链尾
+链尾的next指针设置为NULL
+单链表的遍历方向单一，只能从链头一直遍历到链尾
+
+合并两个有序链表，返回一个新的有序序列：
+
+输入：1->2->4,1->3->4
+输出：1->1->2->3->4->4
+
+1.迭代法：iteration
+1->2->3 
+l1
+1->4->4 
+l2
+迭代法就是一层一层去迭代，一个一个去比较
+
+
+
+2.递归法：recursion
+1       1
+|       |
+\/      \/
+2       4
+|       |
+\/      \/
+3       5
+l1       l2
+
+
+
+
+
+
+
+
+
+
+

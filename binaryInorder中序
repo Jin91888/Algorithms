@@ -37,3 +37,31 @@ while(栈不为空 或者 当前节点cur不为空），在：
 第一次循环后，stack和res的结果
 。。。。。
 
+
+
+饲养员：
+4 2 5 1 6 3 7
+二叉树的递归伪代码：
+inOrder(root)
+result = []----要有一个结果集来存所有的节点
+helper(root,result)----递归辅助函数：递归函数，根节点传进来
+结果集也传进来
+return result  返回结果集
+helper(node,result):
+if node == null;
+return;
+helper(node.left，result)
+result.add(node.va())
+helper(node.right,result)
+
+
+helper(1,[])
+helper(node,result):
+if node == null:
+return ;
+helper(node.left,result)
+result.add(node.va())
+
+
+
+
